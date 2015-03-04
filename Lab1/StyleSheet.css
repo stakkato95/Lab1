@@ -1,0 +1,33 @@
+﻿.ButtonEncrypt {
+    font-family: serif;
+    font-size: 14px;
+    border: 1px solid Red;
+    align-self: center;
+}
+
+
+.TextBoxSourse {
+    border: 1px chartreuse solid;
+}
+
+.TextBoxEncrypted {
+    border: 1px solid red;
+}
+
+.pStyle {
+    font-family: cursive;
+    font-size: 14px;
+}
+
+.table {
+    border: 1px solid black;
+    vertical-align: middle;
+    margin: 0 auto !important;
+    vertical-align: middle;
+}
+
+.def {
+    font-size: 18px;
+    font-family: monospace;
+ 
+}

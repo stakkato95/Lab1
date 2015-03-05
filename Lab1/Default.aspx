@@ -10,11 +10,11 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    <p class="pStyle" align="center">Выполнили: Коляго, Голицын</p>
+    <p class="pStyle">Выполнили: Коляго, Голицын</p>
     </div>
         
-          <p align="center">  <asp:HyperLink ID="HyperLinkTask1" runat="server" NavigateUrl="~/Task1.aspx" Target="_blank" CssClass="def" >Task 1</asp:HyperLink></p>
-          <p align="center">  <asp:HyperLink ID="HyperLinkTask2" runat="server" NavigateUrl="~/Task2.aspx" Target="_blank" CssClass="def"  >Task 2</asp:HyperLink></p>  
+          <p >  <asp:HyperLink ID="HyperLinkTask1" runat="server" NavigateUrl="~/Task1.aspx" Target="_blank" CssClass="def" >Task 1</asp:HyperLink></p>
+          <p >  <asp:HyperLink ID="HyperLinkTask2" runat="server" NavigateUrl="~/Task2.aspx" Target="_blank" CssClass="def"  >Task 2</asp:HyperLink></p>  
         
     </form>
 </body>

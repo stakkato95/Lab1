@@ -31,3 +31,20 @@
     font-family: monospace;
  
 }
+
+.menu{
+    width:20%;
+    border: 1px solid black;
+    float:left;
+    height:100%;
+}
+
+.content{
+    border: 1px solid black;
+    margin-left:20%;
+    height:100%;
+}
+
+.headerImg {
+    width:100%;
+}

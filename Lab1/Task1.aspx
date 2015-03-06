@@ -4,10 +4,10 @@
 
     <div>
 
-        <div class="mainDiv">
+        <div>
 
-            <p class="pStyle">Encrypter 10000<br/>
-                Для того, чтобы шифровать/дешифровать строку введите значение в соостветствующие поля и нажмите Convert.<br/>
+            <p class="pStyle"><h3>Encrypter 10000</h3>
+                Для того, чтобы шифровать/дешифровать строку введите значение в соостветствующие поля и нажмите Convert.
                 Удачного шифрования!!!</p>
             <asp:TextBox ID="TextBoxSourse" runat="server" CssClass="TextBoxSourse" placeholder="Зашивровать строку..." ></asp:TextBox>
             <asp:Button ID="ButtonEncrypt" runat="server" OnClick="ButtonEncrypt_Click" Text="Convert" CssClass="ButtonEncrypt" CausesValidation="true" />

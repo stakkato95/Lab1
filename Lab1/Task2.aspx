@@ -1,6 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Task2.aspx.cs" Inherits="Task2" MasterPageFile="~/MasterPage.master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Task2.aspx.cs" Inherits="Task2" MasterPageFile="~/MasterPage.master"  %>
 
 <asp:Content runat="server" ContentPlaceHolderID="ContentPlace">
+    
     <p class="pStyle">
         Мгновенный перевод единиц веса и массы<br />
         Всё очень просто:<br />
@@ -11,8 +12,9 @@
         Нужна помощь? Звоните +375 29 8821289/+375 29 9617728
     </p>
     <div>
-        <asp:CustomValidator ID="MassValidator" runat="server" EnableViewState="true" ErrorMessage="Обязательным для заполнения является хотя бы одно поле" OnServerValidate="MassValidator_ServerValidate" ForeColor="Red" />
-        <table>
+        <asp:CustomValidator ID="MassValidator" runat="server" EnableViewState="true" ErrorMessage="Обязательным для заполнения является хотя бы одно поле" OnServerValidate="MassValidator_ServerValidate" ForeColor="Red"  />
+        
+        <table class="table">
 
             <tr>
                 <td class="auto-style1">Килограмм </td>

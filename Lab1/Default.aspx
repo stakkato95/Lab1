@@ -1,21 +1,28 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" MasterPageFile="~/MasterPage.master" %>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>АиП. Портфолио</title>
-       <link href="StyleSheet.css" rel="stylesheet" type="text/css"/>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content runat="server" ContentPlaceHolderID="ContentPlace">
+
+
     <div>
-    <p class="pStyle">Выполнили: Коляго, Голицын</p>
+        <p class="pStyle">Выполнили: <a href="#modal" class="button openModal">Коляго</a>, <a href="#modal1" class="button openModal">Голицын</a></p>
+
     </div>
-        
-          <p >  <asp:HyperLink ID="HyperLinkTask1" runat="server" NavigateUrl="~/Task1.aspx" Target="_blank" CssClass="def" >Task 1</asp:HyperLink></p>
-          <p >  <asp:HyperLink ID="HyperLinkTask2" runat="server" NavigateUrl="~/Task2.aspx" Target="_blank" CssClass="def"  >Task 2</asp:HyperLink></p>  
-        
-    </form>
-</body>
-</html>
+    
+    <div id="modal" class="modal">
+        <div>
+            <div class="text"> Коляго Артём</div>
+            <a href="#close" title="Закрыть">Закрыть</a>
+        </div>
+    </div>
+    
+     <div id="modal1" class="modal">
+        <div>
+            <div class="text">Голицын Андрей</div>
+            <a href="#close" title="Закрыть">Закрыть</a>
+        </div>
+    </div>
+
+</asp:Content>
+
+

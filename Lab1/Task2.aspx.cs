@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -45,12 +46,13 @@ public partial class Task2 : System.Web.UI.Page
     private const double StounToUnc = 224;
     private const double StounToGra = 98000;
 
-    private static double lastKgValue;
-    private static double lastDrahmaValue;
-    private static double lastFuntValue;
-    private static double lastGranValue;
-    private static double lastUncValue;
-    private static double lastStounValue;
+    private static TextBox lastKgValue { get; set; }
+    private static TextBox lastDrahmaValue { get; set; }
+    private static TextBox lastFuntValue { get; set; }
+    private static TextBox lastGranValue { get; set; }
+    private static TextBox lastUncValue { get; set; }
+    private static TextBox lastStounValue { get; set; }
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -59,7 +61,7 @@ public partial class Task2 : System.Web.UI.Page
     {
         if (TextBoxKg.Text != lastKgValue.ToString() && TextBoxKg.Text != EMPTY_STRING)
         {
-            lastKgValue = double.Parse(TextBoxKg.Text);
+            lastKgValue = double.Parse(TextBoxKg.Text, NumberStyles.Any);
             TextBoxStoun.Text = (lastStounValue = lastKgValue * KgToStoun).ToString();
             TextBoxFunt.Text = (lastFuntValue = lastKgValue * KgToFunt).ToString();
             TextBoxGran.Text = (lastGranValue = lastKgValue * KgToGra).ToString();
@@ -68,7 +70,7 @@ public partial class Task2 : System.Web.UI.Page
         }
         else if (TextBoxDrahma.Text != lastDrahmaValue.ToString() && TextBoxDrahma.Text != EMPTY_STRING)
         {
-            lastDrahmaValue = lastDrahmaValue = double.Parse(TextBoxDrahma.Text);
+            lastDrahmaValue = double.Parse(TextBoxDrahma.Text, CultureInfo.InvariantCulture);
             TextBoxKg.Text = (lastKgValue = lastDrahmaValue * DrahmaToKg).ToString();
             TextBoxFunt.Text = (lastFuntValue = lastDrahmaValue * DrahmaToFunt).ToString();
             TextBoxGran.Text = (lastGranValue = lastDrahmaValue * DrahmaToGra).ToString();
@@ -77,39 +79,39 @@ public partial class Task2 : System.Web.UI.Page
         }
         else if (TextBoxFunt.Text != lastFuntValue.ToString() && TextBoxFunt.Text != EMPTY_STRING)
         {
-            lastFuntValue = double.Parse(TextBoxFunt.Text);
-            TextBoxKg.Text = (lastFuntValue = lastFuntValue * FuntToKg).ToString();
-            TextBoxDrahma.Text = (lastFuntValue = lastFuntValue * FuntToDrahma).ToString();
-            TextBoxGran.Text = (lastFuntValue = lastFuntValue * FuntToGra).ToString();
-            TextBoxStoun.Text = (lastFuntValue = lastFuntValue * FuntToStoun).ToString();
-            TextBoxUnc.Text = (lastFuntValue = lastFuntValue * FuntToUnc).ToString();
+            lastFuntValue = double.Parse(TextBoxFunt.Text, CultureInfo.InvariantCulture);
+            TextBoxKg.Text = (lastKgValue = lastFuntValue * FuntToKg).ToString();
+            TextBoxDrahma.Text = (lastDrahmaValue = lastFuntValue * FuntToDrahma).ToString();
+            TextBoxGran.Text = (lastGranValue = lastFuntValue * FuntToGra).ToString();
+            TextBoxStoun.Text = (lastStounValue = lastFuntValue * FuntToStoun).ToString();
+            TextBoxUnc.Text = (lastUncValue = lastFuntValue * FuntToUnc).ToString();
         }
         else if (TextBoxGran.Text != lastGranValue.ToString() && TextBoxGran.Text != EMPTY_STRING)
         {
-            lastGranValue = double.Parse(TextBoxGran.Text);
-            TextBoxKg.Text = (lastGranValue = lastGranValue * GraToKg).ToString();
-            TextBoxDrahma.Text = (lastGranValue = lastGranValue * GraToDrahma).ToString();
-            TextBoxFunt.Text = (lastGranValue = lastGranValue * GraToFunt).ToString();
-            TextBoxStoun.Text = (lastGranValue = lastGranValue * GraToStoun).ToString();
-            TextBoxUnc.Text = (lastGranValue = lastGranValue * GraToUnc).ToString();
+            lastGranValue = double.Parse(TextBoxGran.Text, CultureInfo.InvariantCulture);
+            TextBoxKg.Text = (lastKgValue = lastGranValue * GraToKg).ToString();
+            TextBoxDrahma.Text = (lastDrahmaValue = lastGranValue * GraToDrahma).ToString();
+            TextBoxFunt.Text = (lastFuntValue = lastGranValue * GraToFunt).ToString();
+            TextBoxStoun.Text = (lastStounValue = lastGranValue * GraToStoun).ToString();
+            TextBoxUnc.Text = (lastUncValue = lastGranValue * GraToUnc).ToString();
         }
         else if (TextBoxUnc.Text != lastUncValue.ToString() && TextBoxUnc.Text != EMPTY_STRING)
         {
-            lastUncValue = double.Parse(TextBoxUnc.Text);
-            TextBoxKg.Text = (lastUncValue = lastUncValue * UncToKg).ToString();
-            TextBoxDrahma.Text = (lastUncValue = lastUncValue * UncToDrahma).ToString();
-            TextBoxGran.Text = (lastUncValue = lastUncValue * UncToGra).ToString();
-            TextBoxFunt.Text = (lastUncValue = lastUncValue * UncToFunt).ToString();
-            TextBoxStoun.Text = (lastUncValue = lastUncValue * UncToStoun).ToString();
+            lastUncValue = double.Parse(TextBoxUnc.Text, CultureInfo.InvariantCulture);
+            TextBoxKg.Text = (lastKgValue = lastUncValue * UncToKg).ToString();
+            TextBoxDrahma.Text = (lastDrahmaValue = lastUncValue * UncToDrahma).ToString();
+            TextBoxGran.Text = (lastGranValue = lastUncValue * UncToGra).ToString();
+            TextBoxFunt.Text = (lastFuntValue = lastUncValue * UncToFunt).ToString();
+            TextBoxStoun.Text = (lastStounValue = lastUncValue * UncToStoun).ToString();
         }
         else if (TextBoxStoun.Text != lastStounValue.ToString() && TextBoxStoun.Text != EMPTY_STRING)
         {
-            lastStounValue = double.Parse(TextBoxStoun.Text);
-            TextBoxKg.Text = (lastStounValue = lastStounValue * StounToKg).ToString();
-            TextBoxDrahma.Text = (lastStounValue = lastStounValue * StounToDrahma).ToString();
-            TextBoxGran.Text = (lastStounValue = lastStounValue * StounToGra).ToString();
-            TextBoxFunt.Text = (lastStounValue = lastStounValue * StounToFunt).ToString();
-            TextBoxUnc.Text = (lastStounValue = lastStounValue * StounToUnc).ToString();
+            lastStounValue = double.Parse(TextBoxStoun.Text, CultureInfo.InvariantCulture);
+            TextBoxKg.Text = (lastKgValue = lastStounValue * StounToKg).ToString();
+            TextBoxDrahma.Text = (lastDrahmaValue = lastStounValue * StounToDrahma).ToString();
+            TextBoxGran.Text = (lastGranValue = lastStounValue * StounToGra).ToString();
+            TextBoxFunt.Text = (lastFuntValue = lastStounValue * StounToFunt).ToString();
+            TextBoxUnc.Text = (lastUncValue = lastStounValue * StounToUnc).ToString();
         }
     }
 
@@ -126,12 +128,38 @@ public partial class Task2 : System.Web.UI.Page
 
     protected void MassValidator_ServerValidate(object source, ServerValidateEventArgs args)
     {
-        args.IsValid = TextBoxDrahma.Text != EMPTY_STRING ||
-            TextBoxFunt.Text != EMPTY_STRING ||
-            TextBoxGran.Text != EMPTY_STRING ||
-            TextBoxKg.Text != EMPTY_STRING ||
-            TextBoxStoun.Text != EMPTY_STRING||
-            TextBoxUnc.Text != EMPTY_STRING;
+        args.IsValid = TextBoxDrahma.Text.Length != 0 ||
+            TextBoxFunt.Text.Length != 0 ||
+            TextBoxGran.Text.Length != 0 ||
+            TextBoxKg.Text.Length != 0 ||
+            TextBoxStoun.Text.Length != 0 ||
+            TextBoxUnc.Text.Length != 0;
+    }
+
+    protected void TextBoxGran_TextChanged(object sender, EventArgs e)
+    {
+        lastGranValue = (sender as TextBox);
+    }
+
+    protected void TextBoxKg_TextChanged(object sender, EventArgs e)
+    {
+        lastKgValue = (sender as TextBox);
+    }
+    protected void TextBoxFunt_TextChanged(object sender, EventArgs e)
+    {
+        lastFuntValue = (sender as TextBox);
+    }
+    protected void TextBoxUnc_TextChanged(object sender, EventArgs e)
+    {
+        lastUncValue = (sender as TextBox);
+    }
+    protected void TextBoxStoun_TextChanged(object sender, EventArgs e)
+    {
+        lastStounValue = (sender as TextBox);
+    }
+    protected void TextBoxDrahma_TextChanged(object sender, EventArgs e)
+    {
+        lastDrahmaValue = (sender as TextBox);
     }
 }
 

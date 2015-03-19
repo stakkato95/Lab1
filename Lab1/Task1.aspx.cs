@@ -15,7 +15,7 @@ public partial class Task1 : System.Web.UI.Page
     }
     protected void ButtonEncrypt_Click(object sender, EventArgs e)
     {
-        if (TextBoxSourse.Text != EMPTY_STRING)
+        if (TextBoxSourse.Text.Length != 0)
         {
             char[] source = TextBoxSourse.Text.ToCharArray(0, TextBoxSourse.Text.Length);
             for (int i = 0; i < source.Length; i++)
@@ -40,5 +40,10 @@ public partial class Task1 : System.Web.UI.Page
     {
         args.IsValid = (TextBoxSourse.Text == EMPTY_STRING && TextBoxEncrypted.Text != EMPTY_STRING) || 
             (TextBoxSourse.Text != EMPTY_STRING && TextBoxEncrypted.Text == EMPTY_STRING);
+    }
+
+    protected void SpacesValidator_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        args.IsValid = !String.IsNullOrWhiteSpace(TextBoxSourse.Text) || !String.IsNullOrWhiteSpace(TextBoxEncrypted.Text);
     }
 }

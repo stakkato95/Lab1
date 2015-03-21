@@ -61,7 +61,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Button ID="ButtonConvert" runat="server" OnClick="ButtonConvert_Click" Text="Convert" CausesValidation="true" ForeColor="red" /></td>
+                    <asp:Button ID="ButtonConvert" runat="server" Text="Convert" CausesValidation="true" ForeColor="red" /></td>
                 <td>
                     <asp:Button ID="ButtonClear" runat="server" Text="Clear" OnClick="ButtonClear_Click" Font-Bold="True" CausesValidation="false" />
                 </td>

@@ -15,26 +15,7 @@ public partial class Task1 : System.Web.UI.Page
     }
     protected void ButtonEncrypt_Click(object sender, EventArgs e)
     {
-        if (TextBoxSourse.Text.Length != 0)
-        {
-            char[] source = TextBoxSourse.Text.ToCharArray(0, TextBoxSourse.Text.Length);
-            for (int i = 0; i < source.Length; i++)
-            {
-                source[i] += (char)3;
-            }
-            string s = new string(source);
-            TextBoxEncrypted.Text = s;
-        }
-        else
-        {
-            char[] source = TextBoxEncrypted.Text.ToCharArray(0, TextBoxEncrypted.Text.Length);
-            for (int i = 0; i < source.Length; i++)
-            {
-                source[i] -= (char)3;
-            }
-            string s = new string(source);
-            TextBoxSourse.Text = s;
-        }
+
     }
     protected void EncryptValidator_ServerValidate(object source, ServerValidateEventArgs args)
     {
@@ -45,5 +26,28 @@ public partial class Task1 : System.Web.UI.Page
     protected void SpacesValidator_ServerValidate(object source, ServerValidateEventArgs args)
     {
         args.IsValid = !String.IsNullOrWhiteSpace(TextBoxSourse.Text) || !String.IsNullOrWhiteSpace(TextBoxEncrypted.Text);
+    }
+
+    protected void TextBoxSourse_TextChanged(object sender, EventArgs e)
+    {
+        char[] source = TextBoxSourse.Text.ToCharArray(0, TextBoxSourse.Text.Length);
+        for (int i = 0; i < source.Length; i++)
+        {
+            source[i] += (char)3;
+        }
+        string s = new string(source);
+        TextBoxEncrypted.Text = s;
+    }
+
+
+    protected void TextBoxEncrypted_TextChanged(object sender, EventArgs e)
+    {
+        char[] source = TextBoxEncrypted.Text.ToCharArray(0, TextBoxEncrypted.Text.Length);
+        for (int i = 0; i < source.Length; i++)
+        {
+            source[i] -= (char)3;
+        }
+        string s = new string(source);
+        TextBoxSourse.Text = s;
     }
 }

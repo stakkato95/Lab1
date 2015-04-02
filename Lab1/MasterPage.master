@@ -42,12 +42,6 @@
 
 
 
-
-        <div class="footer">
-            <img class="footer" src="img/footer.png" />
-            <h4 align="center">Коляго, Голицын - 2015 all rights reserved</h4>
-        </div>
-
     </form>
 </body>
 </html>

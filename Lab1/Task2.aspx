@@ -14,48 +14,50 @@
     <div>
         <asp:CustomValidator ID="MassValidator" runat="server" EnableViewState="true" ErrorMessage="Обязательным для заполнения является хотя бы одно поле" OnServerValidate="MassValidator_ServerValidate" ForeColor="Red"  />
         
-        <table class="table">
+
+        <asp:Panel runat="server" ID="ContainerPanel">
+            <table class="table">
 
             <tr>
                 <td class="auto-style1">Килограмм </td>
                 <td class="auto-style1">
-                    <asp:TextBox ID="TextBoxKg" runat="server" OnTextChanged="TextBoxKg_TextChanged"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxKg" runat="server" OnTextChanged="Unified_TextChanged"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="ValidatorKg" runat="server" ErrorMessage="В килограммах введено не число" ForeColor="Red" ControlToValidate="TextBoxKg" EnableViewState="true" SetFocusOnError="true" ValidationExpression="\d*.,*\d*"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
                 <td>Фунт </td>
                 <td>
-                    <asp:TextBox ID="TextBoxFunt" runat="server" OnTextChanged="TextBoxFunt_TextChanged"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxFunt" runat="server" OnTextChanged="Unified_TextChanged"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="ValidatorFunt" runat="server" ErrorMessage="В фунтах введено не число" ForeColor="Red" ControlToValidate="TextBoxFunt" EnableViewState="true" SetFocusOnError="true" ValidationExpression="\d*.,*\d*"></asp:RegularExpressionValidator>
                 </td>
             </tr>
 
             <tr>
-                <td>Унция </td>
-                <td>
-                    <asp:TextBox ID="TextBoxUnc" runat="server" OnTextChanged="TextBoxUnc_TextChanged"></asp:TextBox>
+                <td class="auto-style1">Унция </td>
+                <td class="auto-style1">
+                    <asp:TextBox ID="TextBoxUnc" runat="server" OnTextChanged="Unified_TextChanged"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="ValidatorUnc" runat="server" ErrorMessage="В унциях введено не число" ForeColor="Red" ControlToValidate="TextBoxUnc" EnableViewState="true" SetFocusOnError="true" ValidationExpression="\d*.,*\d*"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
                 <td>Драхма </td>
                 <td>
-                    <asp:TextBox ID="TextBoxDrahma" runat="server" OnTextChanged="TextBoxDrahma_TextChanged"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxDrahma" runat="server" OnTextChanged="Unified_TextChanged"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="ValidatorDrahma" runat="server" ErrorMessage="В драхмах введено не число" ForeColor="Red" ControlToValidate="TextBoxDrahma" EnableViewState="true" SetFocusOnError="true" ValidationExpression="\d*.,*\d*"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
                 <td>Гран</td>
                 <td>
-                    <asp:TextBox ID="TextBoxGran" runat="server" OnTextChanged="TextBoxGran_TextChanged"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxGran" runat="server" OnTextChanged="Unified_TextChanged"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="ValidatorGran" runat="server" ErrorMessage="В гранах введено не число" ForeColor="Red" ControlToValidate="TextBoxGran" EnableViewState="true" SetFocusOnError="true" ValidationExpression="\d*.,*\d*"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
                 <td>Стоун</td>
                 <td>
-                    <asp:TextBox ID="TextBoxStoun" runat="server" OnTextChanged="TextBoxStoun_TextChanged"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxStoun" runat="server" OnTextChanged="Unified_TextChanged"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="ValidatorStoun" runat="server" ErrorMessage="В стоунах введено не число" ForeColor="Red" ControlToValidate="TextBoxStoun" EnableViewState="true" SetFocusOnError="true" ValidationExpression="\d*.,*\d*"></asp:RegularExpressionValidator>
                 </td>
             </tr>
@@ -67,6 +69,7 @@
                 </td>
             </tr>
         </table>
+            </asp:Panel>
 
 
 
@@ -78,3 +81,11 @@
 
     </div>
 </asp:Content>
+<asp:Content ID="Content1" runat="server" contentplaceholderid="head">
+    <style type="text/css">
+        .auto-style1 {
+            height: 31px;
+        }
+    </style>
+</asp:Content>
+

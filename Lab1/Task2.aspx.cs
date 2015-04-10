@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.SqlServer.Server;
 
 public partial class Task2 : System.Web.UI.Page
 {
@@ -123,18 +126,20 @@ public partial class Task2 : System.Web.UI.Page
 
     protected void Unified_TextChanged(object sender, EventArgs e)
     {
-        TextBox textBoxSender = ContainerPanel.FindControl((sender as TextBox).ID) as TextBox;
+        TextBox textBoxSender = sender as TextBox;
         TextBox configurableTextBox;
+       
 
         foreach (string textBoxId in sTextBoxes.Keys)
         {
             configurableTextBox = ContainerPanel.FindControl(textBoxId) as TextBox;
-            if (configurableTextBox == textBoxSender)
+            if (configurableTextBox != textBoxSender)
             {
-                continue;
+                configurableTextBox.Text = String.Format("{0:0.##############}", (double.Parse(textBoxSender.Text, CultureInfo.InvariantCulture) * sTextBoxes[textBoxSender.ID][configurableTextBox.ID]));
+               
+
             }
-            configurableTextBox.Text = (double.Parse(textBoxSender.Text, CultureInfo.InvariantCulture) * sTextBoxes[textBoxSender.ID][configurableTextBox.ID]).ToString();
-        }
+            }
     }
 
 }

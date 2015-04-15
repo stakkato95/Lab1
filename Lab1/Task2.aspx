@@ -72,13 +72,6 @@
             </asp:Panel>
 
 
-
-
-
-
-
-
-
     </div>
 </asp:Content>
 <asp:Content ID="Content1" runat="server" contentplaceholderid="head">
